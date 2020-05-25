@@ -8,4 +8,4 @@ https://fastapi.tiangolo.com/tutorial/first-steps/
 
 
 
-![alt text](https://github.com/aiserrock/LoansAnalyzer/fastapi.png)
+![alt text](https://github.com/aiserrock/LoansAnalyzerBack/blob/master/fastapi.png)
