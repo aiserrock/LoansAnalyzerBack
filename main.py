@@ -7,6 +7,7 @@ from starlette import status
 from auth.auth_utils import authenticate_user, ACCESS_TOKEN_EXPIRE_MINUTES, create_access_token, get_current_active_user
 from database.mongodb_utilites import connect_to_mongo, disconnect_from_mongo
 from auth.model import Token
+from loans.routes import loans_router
 from users.model import UserResponse
 from users.routes import users_router
 
@@ -19,6 +20,13 @@ app.include_router(
     users_router,
     prefix="/users",
     tags=["users"],
+    dependencies=[Depends(get_current_active_user)],
+    responses={404: {"description": "Not found"}},
+)
+app.include_router(
+    loans_router,
+    prefix="/loans",
+    tags=["loans"],
     dependencies=[Depends(get_current_active_user)],
     responses={404: {"description": "Not found"}},
 )

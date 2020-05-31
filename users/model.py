@@ -2,7 +2,7 @@ from pydantic import BaseModel
 
 
 class UserDB(BaseModel):
-    _id: str
+    id: str
     name: str
     username: str
     password: str
@@ -10,6 +10,6 @@ class UserDB(BaseModel):
 
 
 class UserResponse(BaseModel):
-    _id: str
+    id: str
     name: str
     username: str

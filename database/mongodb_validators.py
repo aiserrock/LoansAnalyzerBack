@@ -15,11 +15,9 @@ def validate_object_id(id: str):
 
 
 def fix_id(obj):
+    for attr in obj:
+        if isinstance(obj[attr], ObjectId):
+            obj[attr] = str(obj[attr])
     if obj.get("_id", False):
-        # change ObjectID to string
-        obj["_id"] = str(obj.get("_id"))
-        return obj
-    else:
-        raise ValueError(
-            "No `_id` found! Unable to fix object ID: {obj}"
-        )
+        obj["id"] = obj.pop("_id")
+    return obj

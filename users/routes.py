@@ -1,11 +1,7 @@
 from bson import ObjectId
-from fastapi import APIRouter, HTTPException, Depends
-from passlib.context import CryptContext
-from starlette.status import HTTP_200_OK, HTTP_201_CREATED
-import logging
+from fastapi import APIRouter, HTTPException
+from starlette.status import HTTP_200_OK
 from database.mongodb import db
-from pydantic import BaseModel
-from fastapi.encoders import jsonable_encoder
 from database.mongodb_validators import fix_id, validate_object_id
 from auth.model import LoginDB
 from users.model import UserResponse, UserDB
@@ -41,14 +37,14 @@ async def get_user_by_id(user_id: str):
     return user
 
 
-@users_router.post('/', status_code=HTTP_201_CREATED, response_model=UserResponse)
-async def create_user(login: str, name: str, password: str):
-    # TODO верификация что пользователь унеикальынй
-    # TODO хэширование пароля
-    user = UserDB(name=name, login=login, password=password)
-    result = await db.users.insert_one(user.dict())
-    if result:
-        return user
+# @users_router.post('/', status_code=HTTP_201_CREATED, response_model=UserResponse)
+# async def create_user(login: str, name: str, password: str):
+#     # TODO верификация что пользователь унеикальынй
+#     # TODO хэширование пароля
+#     user = UserDB(name=name, login=login, password=password)
+#     result = await db.users.insert_one(user.dict())
+#     if result:
+#         return user
 
 
 @users_router.put("/{user_id}", response_model=UserResponse)
