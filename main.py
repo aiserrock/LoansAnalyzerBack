@@ -11,7 +11,7 @@ from loans.routes import loans_router
 from users.model import UserResponse
 from users.routes import users_router
 
-app = FastAPI()
+app = FastAPI(title="LoansAnalyzerAPI ", description="леха привет")
 
 app.add_event_handler("startup", connect_to_mongo)
 app.add_event_handler("shutdown", disconnect_from_mongo)

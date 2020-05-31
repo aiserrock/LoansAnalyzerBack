@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c8a54991-6050-4b32-91eb-da2fc226a332" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Procfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/mongodb_validators.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/mongodb_validators.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/routes.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -72,8 +68,37 @@
       <workItem from="1590362956835" duration="65000" />
       <workItem from="1590364846729" duration="11679000" />
       <workItem from="1590453035294" duration="716000" />
-      <workItem from="1590479032791" duration="20790000" />
+      <workItem from="1590479032791" duration="22871000" />
     </task>
+    <task id="LOCAL-00001" summary="added loans dir">
+      <created>1590958516375</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1590958516375</updated>
+    </task>
+    <task id="LOCAL-00002" summary="added procfile">
+      <created>1590958801486</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1590958801486</updated>
+    </task>
+    <task id="LOCAL-00003" summary="added Guvicorn for procfile">
+      <created>1590959289347</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1590959289347</updated>
+    </task>
+    <task id="LOCAL-00004" summary="added Guvicorn for procfile">
+      <created>1590959408601</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1590959408601</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -89,5 +114,11 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="added loans dir" />
+    <MESSAGE value="added procfile" />
+    <MESSAGE value="added Guvicorn for procfile" />
+    <option name="LAST_COMMIT_MESSAGE" value="added Guvicorn for procfile" />
   </component>
 </project>
