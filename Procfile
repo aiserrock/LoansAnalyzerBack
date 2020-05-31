@@ -1,1 +1,1 @@
-web: uvicorn main:app --host=0.0.0.0 --port=443
+web: gunicorn -w 4 -k unicorn.workers.UvicornWorker main:app
