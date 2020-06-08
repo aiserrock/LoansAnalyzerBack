@@ -23,11 +23,12 @@ async def _get_loan(id: str):
     else:
         raise HTTPException(status_code=404, detail="Loan not found")
 
-#TODO почитать на хероку про крон
 
 async def _update_loan_status():
-    loans = db.loans.update_many(
-        {"expiration_at": {"$lt": datetime.datetime.now()}},
+    loans = db.loans.update_many({
+        "expiration_at": {"$lt": datetime.datetime.now()},
+        "status": {"$ne": "ARCHIVED"}
+    },
         {"$set": {"status": LoanStatus.OVERDUE.name}}
     )
 
@@ -45,25 +46,33 @@ async def get_loans_by_status(status: LoanStatus, limit: int = 10, skip: int = 0
 
 
 @loans_router.get("/{loan_id}", status_code=HTTP_200_OK)
-async def get_loan_by_id(loan_id: str):
+async def get_loan_by_id(loan_id: str, current_user: UserResponse = Depends(get_current_active_user)):
     loan = await _get_loan(loan_id)
     return loan
 
 
-@loans_router.post('/create', status_code=HTTP_201_CREATED, response_model=LoansDB)
-async def create_loan(loan: LoansDB):
+# TODO валидация данных
+@loans_router.post('/', status_code=HTTP_201_CREATED, response_model=LoansDB)
+async def create_loan(loan: LoansDB, current_user: UserResponse = Depends(get_current_active_user)):
     result = await db.loans.insert_one(loan.dict())
     if result:
         return loan
 
 
+# TODO надо валидировать данные
 @loans_router.put("/{loan_id}", response_model=LoansDB)
-async def update_loan_by_id(loan_id: str, loan: LoansDB):
+async def update_loan_by_id(loan_id: str, loan: LoansDB, current_user: UserResponse = Depends(get_current_active_user)):
     result = await db.loans.update_one({"_id": ObjectId(loan_id)}, {"$set": loan.dict()})
     if result:
         return loan.dict()
 
 
-@loans_router.put('/details', status_code=HTTP_200_OK)
-async def archive_loan(loan_id: str):
-    await db.users.update_one({'_id': ObjectId(loan_id)}, {"$set": {"status": "archived"}})
+@loans_router.get("/", response_model=LoansDB)
+async def find_loan_by_name_client(name: str, limit: int = 10, skip: int = 0,
+                                   current_user: UserResponse = Depends(get_current_active_user)):
+    loans_cursor = db.loans.find({
+        "name": name,
+        "user_id": ObjectId(current_user.id)
+    }).skip(skip).limit(limit)
+    loans = await loans_cursor.to_list(length=limit)
+    return list(map(fix_id, loans))

@@ -5,6 +5,7 @@ from fastapi.security import OAuth2PasswordRequestForm
 from starlette import status
 
 from auth.auth_utils import authenticate_user, ACCESS_TOKEN_EXPIRE_MINUTES, create_access_token, get_current_active_user
+from clients.routes import clients_router
 from database.mongodb_utilites import connect_to_mongo, disconnect_from_mongo
 from auth.model import Token
 from loans.routes import loans_router
@@ -27,6 +28,13 @@ app.include_router(
     loans_router,
     prefix="/loans",
     tags=["loans"],
+    dependencies=[Depends(get_current_active_user)],
+    responses={404: {"description": "Not found"}},
+)
+app.include_router(
+    clients_router,
+    prefix="/clients",
+    tags=["clients"],
     dependencies=[Depends(get_current_active_user)],
     responses={404: {"description": "Not found"}},
 )
