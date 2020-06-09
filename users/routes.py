@@ -21,7 +21,7 @@ async def _get_user(id: str):
 
 async def _get_user_data_for_login(user_id: str):
     user = await _get_user(user_id)
-    return LoginDB(login=user.get("auth"),password=user.get("password"))
+    return LoginDB(login=user.get("auth"), password=user.get("password"))
 
 
 @users_router.get("/", status_code=HTTP_200_OK)
@@ -37,22 +37,8 @@ async def get_user_by_id(user_id: str):
     return user
 
 
-
 @users_router.put("/{user_id}", response_model=UserResponse)
 async def update_user_by_id(user_id: str, user: UserDB):
     result = await db.users.update_one({"_id": ObjectId(user_id)}, {"$set": user.dict()})
     if result:
         return user.dict()
-
-# @users_router.delete('/', status_code=HTTP_200_OK)
-# async def delete_user(user_id):
-#     await db.users.delete_one({'_id': ObjectId(user_id)})
-
-# @users_router.post('/', status_code=HTTP_201_CREATED, response_model=UserResponse)
-# async def create_user(login: str, name: str, password: str):
-#     # TODO верификация что пользователь унеикальынй
-#     # TODO хэширование пароля
-#     user = UserDB(name=name, login=login, password=password)
-#     result = await db.users.insert_one(user.dict())
-#     if result:
-#         return user

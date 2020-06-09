@@ -1,3 +1,5 @@
+import logging
+
 from bson import ObjectId
 from fastapi import APIRouter, HTTPException, Depends
 from starlette.status import HTTP_200_OK, HTTP_201_CREATED
@@ -6,7 +8,6 @@ from auth.auth_utils import get_current_active_user
 from clients.model import ClientDB
 from database.mongodb import db
 from database.mongodb_validators import fix_id, validate_object_id
-from auth.model import LoginDB
 from users.model import UserResponse
 
 clients_router = APIRouter()
@@ -23,16 +24,15 @@ async def _get_client(id: str):
 
 
 @clients_router.get("/", status_code=HTTP_200_OK)
-async def get_all_clients(limit: int = 10, skip: int = 0,
-                          current_user: UserResponse = Depends(get_current_active_user)):
+async def get_all_clients(limit: int = 10, skip: int = 0):
     clients_cursor = db.clients.find().skip(skip).limit(limit)
     clients = await clients_cursor.to_list(length=limit)
     return list(map(fix_id, clients))
 
 
 @clients_router.get("/{client_id}", status_code=HTTP_200_OK)
-async def get_client_by_id(user_id: str):
-    client = await _get_client(user_id)
+async def get_client_by_id(client_id: str):
+    client = await _get_client(client_id)
     return client
 
 
@@ -49,9 +49,21 @@ async def delete_client(client_id):
 
 
 @clients_router.post('/', status_code=HTTP_201_CREATED, response_model=ClientDB)
-async def create_user(name: str, phone: str, user_id: str):
-    # TODO верификация что пользователь унеикальынй
-    client = ClientDB(name=name, phone=phone, user_id=user_id)
-    result = await db.clients.insert_one(client.dict())
+async def create_user(name: str, phone: str, current_user: UserResponse = Depends(get_current_active_user)):
+    # unic client?
+    phone_count = await db.clients.count_documents({
+        "phone": phone
+    })
+    if phone_count > 0:
+        raise HTTPException(status_code=409, detail="This phone already exist. Try to use another one")
+    # insert
+    result = await db.clients.insert_one({
+        "name": name,
+        "phone": phone,
+        "user_id": ObjectId(current_user.id)
+    })
     if result:
-        return client
+        client = await db.clients.find_one({"_id": result.inserted_id})
+        return fix_id(client)
+    else:
+        raise HTTPException(status_code=500, detail="Сlient hasn't been created")
