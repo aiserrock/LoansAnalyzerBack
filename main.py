@@ -3,6 +3,7 @@ from datetime import timedelta
 from fastapi import FastAPI, Depends, HTTPException
 from fastapi.security import OAuth2PasswordRequestForm
 from starlette import status
+from fastapi.middleware.cors import CORSMiddleware
 
 from auth.auth_utils import authenticate_user, ACCESS_TOKEN_EXPIRE_MINUTES, create_access_token, get_current_active_user
 from clients.routes import clients_router
@@ -18,6 +19,17 @@ app = FastAPI(title="LoansAnalyzerAPI ", description="леха привет")
 app.add_event_handler("startup", connect_to_mongo)
 app.add_event_handler("shutdown", disconnect_from_mongo)
 
+origins = [
+    "*"
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 app.include_router(
     users_router,
     prefix="/users",
