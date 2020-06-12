@@ -2,16 +2,108 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c8a54991-6050-4b32-91eb-da2fc226a332" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/history_loans/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/history_loans/model.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/history_loans/routes.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/loans/loans_utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/LICENSE.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/gunicorn-20.0.4.dist-info/INSTALLER" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/gunicorn-20.0.4.dist-info/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/gunicorn-20.0.4.dist-info/METADATA" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/gunicorn-20.0.4.dist-info/RECORD" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/gunicorn-20.0.4.dist-info/WHEEL" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/gunicorn-20.0.4.dist-info/entry_points.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/gunicorn-20.0.4.dist-info/top_level.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/gunicorn/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/gunicorn/app/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/gunicorn/app/base.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/gunicorn/app/pasterapp.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/gunicorn/app/wsgiapp.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/gunicorn/arbiter.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/gunicorn/config.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/gunicorn/debug.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/gunicorn/errors.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/gunicorn/glogging.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/gunicorn/http/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/gunicorn/http/body.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/gunicorn/http/errors.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/gunicorn/http/message.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/gunicorn/http/parser.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/gunicorn/http/unreader.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/gunicorn/http/wsgi.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/gunicorn/instrument/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/gunicorn/instrument/statsd.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/gunicorn/pidfile.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/gunicorn/reloader.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/gunicorn/sock.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/gunicorn/systemd.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/gunicorn/util.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/gunicorn/workers/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/gunicorn/workers/base.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/gunicorn/workers/base_async.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/gunicorn/workers/geventlet.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/gunicorn/workers/ggevent.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/gunicorn/workers/gthread.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/gunicorn/workers/gtornado.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/gunicorn/workers/sync.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/gunicorn/workers/workertmp.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/starlette-0.13.2.dist-info/INSTALLER" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/starlette-0.13.2.dist-info/LICENSE.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/starlette-0.13.2.dist-info/METADATA" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/starlette-0.13.2.dist-info/RECORD" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/starlette-0.13.2.dist-info/WHEEL" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/starlette-0.13.2.dist-info/top_level.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/websockets-8.0-py3.8.egg-info/PKG-INFO" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/websockets-8.0-py3.8.egg-info/SOURCES.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/websockets-8.0-py3.8.egg-info/dependency_links.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/websockets-8.0-py3.8.egg-info/installed-files.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/websockets-8.0-py3.8.egg-info/not-zip-safe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/websockets-8.0-py3.8.egg-info/top_level.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Scripts/gunicorn.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/loansAnalyzer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/loansAnalyzer.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/clients/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/clients/model.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/clients/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/clients/routes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/history_loans/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/history_loans/model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/history_loans/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/history_loans/routes.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/loans/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/loans/model.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/loans/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/loans/routes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/model.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/users/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/routes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/starlette-0.13.4.dist-info/INSTALLER" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/starlette-0.13.4.dist-info/LICENSE.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/starlette-0.13.4.dist-info/METADATA" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/starlette-0.13.4.dist-info/RECORD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/starlette-0.13.4.dist-info/WHEEL" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/starlette-0.13.4.dist-info/top_level.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/starlette/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/starlette/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/starlette/convertors.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/starlette/convertors.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/starlette/middleware/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/starlette/middleware/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/starlette/middleware/cors.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/starlette/middleware/cors.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/starlette/requests.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/starlette/requests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/starlette/responses.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/starlette/responses.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/starlette/routing.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/starlette/routing.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/starlette/testclient.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/starlette/testclient.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/websockets-8.1-py3.8.egg-info/PKG-INFO" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/websockets-8.1-py3.8.egg-info/SOURCES.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/websockets-8.1-py3.8.egg-info/dependency_links.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/websockets-8.1-py3.8.egg-info/installed-files.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/websockets-8.1-py3.8.egg-info/not-zip-safe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/websockets-8.1-py3.8.egg-info/top_level.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/websockets/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/websockets/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/websockets/__main__.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/websockets/__main__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/websockets/client.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/websockets/client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/websockets/exceptions.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/websockets/exceptions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/websockets/extensions/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/websockets/extensions/base.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/websockets/extensions/permessage_deflate.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/websockets/extensions/permessage_deflate.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/websockets/framing.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/websockets/framing.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/websockets/handshake.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/websockets/handshake.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/websockets/headers.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/websockets/headers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/websockets/http.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/websockets/http.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/websockets/protocol.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/websockets/protocol.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/websockets/server.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/websockets/server.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/websockets/speedups.cp38-win32.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/websockets/typing.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/websockets/typing.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/websockets/uri.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/websockets/uri.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/websockets/version.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/websockets/version.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,12 +122,15 @@
     <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="ProjectId" id="1c90nOcCIaV8xOWgwqE9kGg1zeI" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -44,25 +139,13 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ROOT\PycharmProjects\loansAnalyzer" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\ROOT\PycharmProjects\loansAnalyzer\login" />
       <recent name="C:\Users\ROOT\PycharmProjects\loansAnalyzer\users" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\ROOT\PycharmProjects\loansAnalyzer" />
-    </key>
-  </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -134,15 +217,15 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="added loans dir" />
     <MESSAGE value="added procfile" />
     <MESSAGE value="added Guvicorn for procfile" />
@@ -150,6 +233,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="added clients dir" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="444" y="130" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1591883856391">
+      <screen x="63" y="0" width="1303" height="768" />
+    </state>
+    <state x="444" y="130" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/63.0.1303.768@63.0.1303.768" timestamp="1591883856391" />
     <state x="381" y="0" key="CommitChangelistDialog2" timestamp="1591655610406">
       <screen x="63" y="0" width="1303" height="768" />
     </state>
@@ -174,9 +261,9 @@
       <screen x="63" y="0" width="1303" height="768" />
     </state>
     <state x="525" y="302" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/63.0.1303.768@63.0.1303.768" timestamp="1591655561363" />
-    <state x="377" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1591744172587">
+    <state x="377" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1591889139723">
       <screen x="63" y="0" width="1303" height="768" />
     </state>
-    <state x="377" y="89" width="672" height="678" key="search.everywhere.popup/63.0.1303.768@63.0.1303.768" timestamp="1591744172587" />
+    <state x="377" y="89" width="672" height="678" key="search.everywhere.popup/63.0.1303.768@63.0.1303.768" timestamp="1591889139723" />
   </component>
 </project>

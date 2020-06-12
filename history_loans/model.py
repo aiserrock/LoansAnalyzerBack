@@ -11,6 +11,13 @@ class HistoryLoansDB(BaseModel):
     type: str
     loans_id: str
 
+
+class HistoryLoansChange(BaseModel):
+    amount: float
+    date: datetime
+    type: str
+
+
 class HistoryLoansCreate(BaseModel):
     amount: float
     date: datetime

@@ -17,6 +17,18 @@ class LoansDB(BaseModel):
     expiration_at: datetime
     status: str
 
+
+class LoansChange(BaseModel):
+    amount: float
+    rate: float
+    increased_rate: float
+    goal: str
+    created_at: datetime
+    issued_at: datetime
+    expiration_at: datetime
+    status: str
+
+
 class LoansCreate(BaseModel):
     amount: float
     rate: float
@@ -28,6 +40,7 @@ class LoansCreate(BaseModel):
     issued_at: datetime
     expiration_at: datetime
     status: str
+
 
 class LoanStatus(str, Enum):
     ACTIVE = "ACTIVE"

@@ -7,3 +7,8 @@ class ClientDB(BaseModel):
     name: str
     phone: str
     user_id: str
+
+
+class ClientChange(BaseModel):
+    name: str
+    phone: str
