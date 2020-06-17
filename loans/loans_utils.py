@@ -55,7 +55,6 @@ async def _search_by_name_or_phone(current_user: UserResponse, search: str = Non
                     "phone": {"$regex": regex, "$options": "i"}
                 }
             ],
-        "status": status.name,
         "user_id": ObjectId(current_user.id)
     })
     clients = await clients_cursor.to_list(length=limit)
@@ -63,6 +62,7 @@ async def _search_by_name_or_phone(current_user: UserResponse, search: str = Non
     for client in clients:
         tmp_cursor = db.loans.find({
             "clients_id": ObjectId(client["_id"]),
+            "status": status.name,
             "users_id": ObjectId(current_user.id)
         }).skip(skip).limit(limit)
         tmp = await tmp_cursor.to_list(length=limit)
