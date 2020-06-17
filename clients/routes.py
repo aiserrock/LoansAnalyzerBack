@@ -55,7 +55,7 @@ async def update_client_by_id(client_id: str, client: ClientChange,
         raise HTTPException(status_code=500, detail="Сlient hasn't been changed")
 
 
-@clients_router.delete('/', status_code=HTTP_200_OK)
+@clients_router.delete("/{client_id}", status_code=HTTP_200_OK)
 async def delete_client(client_id, current_user: UserResponse = Depends(get_current_active_user)):
     await db.clients.delete_one({"$and": [{"_id": ObjectId(client_id)}, {"user_id": ObjectId(current_user.id)}]})
 

@@ -58,7 +58,7 @@ async def update_client_by_id(history_loan_row_id: str, history_loan_row: Histor
         raise HTTPException(status_code=500, detail="Payment hasn't been changed")
 
 
-@history_loans_router.delete('/', status_code=HTTP_200_OK)
+@history_loans_router.delete("/{history_loan_row_id}", status_code=HTTP_200_OK)
 async def delete_history_loan_row_by_id(history_loan_row_id,
                                         current_user: UserResponse = Depends(get_current_active_user)):
     await db.history_loans.delete_one({'_id': ObjectId(history_loan_row_id)})

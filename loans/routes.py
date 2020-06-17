@@ -29,7 +29,7 @@ async def get_loans(status: LoanStatus = None, search: str = None, limit: int = 
 
     await _update_loans_status()
     if search is not None:
-        return await _search_by_name_or_phone(current_user, search, limit, skip)
+        return await _search_by_name_or_phone(current_user, search, limit, skip, status)
     else:
         return await _get_loan_by_status(current_user, status, limit, skip)
 
@@ -66,7 +66,8 @@ async def create_loan(loan: LoansCreate, current_user: UserResponse = Depends(ge
 
 # TODO надо валидировать данные
 @loans_router.put("/{loan_id}", response_model=LoansDB)
-async def update_loan_by_id(loan_id: str, loan: LoansChange, current_user: UserResponse = Depends(get_current_active_user)):
+async def update_loan_by_id(loan_id: str, loan: LoansChange,
+                            current_user: UserResponse = Depends(get_current_active_user)):
     result = await db.loans.update_one({"$and": [{"_id": ObjectId(loan_id)}, {"users_id": ObjectId(current_user.id)}]},
                                        {"$set": {
                                            "amount": loan.amount,
