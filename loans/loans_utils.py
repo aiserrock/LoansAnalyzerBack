@@ -11,9 +11,9 @@ from loans.model import LoanStatus
 from users.model import UserResponse
 
 
-async def _get_loan(id: str, current_user: UserResponse):
+async def _get_loan(id: str):
     _id = validate_object_id(id)
-    loan = await db.loans.find_one({"$and": [{"_id": _id}, {"users_id": ObjectId(current_user.id)}]})
+    loan = await db.loans.find_one({"_id": _id})
     if loan:
         return fix_id(loan)
     else:
@@ -69,3 +69,4 @@ async def _search_by_name_or_phone(current_user: UserResponse, search: str = Non
         for i in tmp:
             loans.append(i)
     return list(map(fix_id, loans))
+

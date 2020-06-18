@@ -36,8 +36,11 @@ async def get_loans(status: LoanStatus = None, search: str = None, limit: int = 
 
 @loans_router.get("/{loan_id}", status_code=HTTP_200_OK)
 async def get_loan_by_id(loan_id: str, current_user: UserResponse = Depends(get_current_active_user)):
-    loan = await _get_loan(loan_id, current_user)
-    return loan
+    loan = await _get_loan(loan_id)
+    if loan and current_user.id == loan["users_id"]:
+        return loan
+    else:
+        raise HTTPException(status_code=401, detail="Access deny")
 
 
 # TODO валидация данных

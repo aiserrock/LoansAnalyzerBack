@@ -35,7 +35,6 @@ class LoansCreate(BaseModel):
     increased_rate: float
     goal: str
     clients_id: str
-    users_id: str
     created_at: datetime
     issued_at: datetime
     expiration_at: datetime

@@ -14,9 +14,9 @@ clients_router = APIRouter()
 
 
 # Get User Function.
-async def _get_client(id: str, current_user: UserResponse):
+async def _get_client(id: str):
     _id = validate_object_id(id)
-    client = await db.clients.find_one({"$and": [{"_id": _id}, {"user_id": ObjectId(current_user.id)}]})
+    client = await db.clients.find_one({"_id": _id})
     if client:
         return fix_id(client)
     else:
@@ -25,18 +25,40 @@ async def _get_client(id: str, current_user: UserResponse):
 
 @clients_router.get("/", status_code=HTTP_200_OK)
 async def get_all_clients(current_user: UserResponse = Depends(get_current_active_user), limit: int = 10,
-                          skip: int = 0):
-    clients_cursor = db.clients.find({
-        "user_id": ObjectId(current_user.id)
-    }).skip(skip).limit(limit)
+                          skip: int = 0, search=None):
+    """
+
+    передай 1 в параметр search если хочешь использовать горячую подгрузку из базы по имени, иначе ничего не передавай
+    метод вернет всех клиентов авторизованного пользователя
+    """
+
+
+    if search is not None:
+        regex = ".*" + search + ".*"
+        search_query = {"$and": [
+            {"name": {"$regex": regex, "$options": "i"}},
+            {"user_id": ObjectId(current_user.id)}
+        ]
+
+        }
+    else:
+        search_query = {
+            "user_id": ObjectId(current_user.id)
+        }
+    clients_cursor = db.clients.find(
+        search_query
+    ).skip(skip).limit(limit)
     clients = await clients_cursor.to_list(length=limit)
     return list(map(fix_id, clients))
 
 
 @clients_router.get("/{client_id}", status_code=HTTP_200_OK)
 async def get_client_by_id(client_id: str, current_user: UserResponse = Depends(get_current_active_user)):
-    client = await _get_client(client_id, current_user)
-    return client
+    client = await _get_client(client_id)
+    if client and client["user_id"] == current_user.id:
+        return client
+    else:
+        raise HTTPException(status_code=401, detail="Access deny")
 
 
 @clients_router.put("/{client_id}", response_model=ClientDB)

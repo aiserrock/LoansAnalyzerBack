@@ -12,9 +12,9 @@ users_router = APIRouter()
 
 
 # Get User Function.
-async def _get_user(id: str, current_user: UserResponse):
+async def _get_user(id: str):
     _id = validate_object_id(id)
-    user = await db.users.find_one({"_id": _id}, {"user_id": ObjectId(current_user.id)})
+    user = await db.users.find_one({"_id": _id})
     if user:
         return fix_id(user)
     else:
@@ -23,8 +23,11 @@ async def _get_user(id: str, current_user: UserResponse):
 
 @users_router.get("/{user_id}", status_code=HTTP_200_OK)
 async def get_user_by_id(user_id: str, current_user: UserResponse = Depends(get_current_active_user)):
-    user = await _get_user(user_id, current_user)
-    return user
+    user = await _get_user(user_id)
+    if user and user["id"] == current_user.id:
+        return user
+    else:
+        raise HTTPException(status_code=401, detail="Access deny")
 
 
 @users_router.put("/{user_id}", response_model=UserResponse)

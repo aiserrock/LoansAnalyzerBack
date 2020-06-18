@@ -11,6 +11,7 @@ from database.mongodb_utilites import connect_to_mongo, disconnect_from_mongo
 from auth.model import Token
 from history_loans.routes import history_loans_router
 from loans.routes import loans_router
+from report_for_client.routes import report_for_client_router
 from users.model import UserResponse
 from users.routes import users_router
 ##Added cors
@@ -56,6 +57,12 @@ app.include_router(
     prefix="/history_loans",
     tags=["history_loans"],
     dependencies=[Depends(get_current_active_user)],
+    responses={404: {"description": "Not found"}},
+)
+app.include_router(
+    report_for_client_router,
+    prefix="/report",
+    tags=["report"],
     responses={404: {"description": "Not found"}},
 )
 
