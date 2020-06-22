@@ -40,7 +40,7 @@ async def get_loans(status: LoanStatus = None, search: str = None, limit: int = 
 async def get_loan_by_id(loan_id: str, current_user: UserResponse = Depends(get_current_active_user)):
 
     loan = await _get_loan(loan_id)
-    income_income_now_amount_of_dept = await _get_income_income_now_amount_of_dept(loan)
+    #income_income_now_amount_of_dept = await _get_income_income_now_amount_of_dept(loan)
     if loan and current_user.id == loan["users_id"]:
         return {
             "id": loan["id"],
@@ -54,7 +54,7 @@ async def get_loan_by_id(loan_id: str, current_user: UserResponse = Depends(get_
             "issued_at": loan["issued_at"],
             "expiration_at": loan["expiration_at"],
             "status": loan["status"],
-            "income_income_now_amount_of_dept": income_income_now_amount_of_dept
+            #"income_income_now_amount_of_dept": income_income_now_amount_of_dept
         }
     else:
         raise HTTPException(status_code=401, detail="Access deny")

@@ -46,6 +46,12 @@ def _get_dept_and_procent_include_last_date(loan, dept_obj):
     init_dept = loan["amount"]
     issued_at_date = loan["issued_at"]
     expiration_at = loan["expiration_at"]
+    if dept_obj == []:
+        return {
+            "dept": init_dept,
+            "my_income": 0,
+            "last_date": issued_at_date
+        }
     last_date = dept_obj[0]["date"]
     # деньги которые заплатит клиент за пользование моими деньгами
     my_income = 0
@@ -60,7 +66,7 @@ def _get_dept_and_procent_include_last_date(loan, dept_obj):
     my_income += find_procent_for_gap
     # сумма к возврату
     dept = init_dept - dept_obj[0]["amount"]
-    if len(dept_obj)>1:
+    if len(dept_obj) > 1:
         for x in range(1, len(dept_obj)):
             if last_date < dept_obj[x]["date"]:
                 last_date = dept_obj[x]["date"]
