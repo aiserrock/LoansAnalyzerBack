@@ -14,13 +14,18 @@ from loans.routes import loans_router
 from report_for_client.routes import report_for_client_router
 from users.model import UserResponse
 from users.routes import users_router
+#from flask import Flask
+
+
 ##Added cors
 app = FastAPI(title="LoansAnalyzerAPI ", description="леха привет")
+#CORS(app)
 
 app.add_event_handler("startup", connect_to_mongo)
 app.add_event_handler("shutdown", disconnect_from_mongo)
 #app.router.redirect_slashes = False
 #Кажется, это redirect_slashesозначает «перенаправлять пути без косой черты в косую черту», ​​НЕ «перенаправлять косую черту без косой черты».
+
 
 origins = [
     "*"

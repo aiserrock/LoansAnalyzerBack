@@ -67,7 +67,7 @@ def get_model_definitions(
 
 
 def get_path_param_names(path: str) -> Set[str]:
-    return {item.strip("{}") for item in re.findall("{[^}]*}", path)}
+    return set(re.findall("{(.*?)}", path))
 
 
 def create_response_field(
@@ -172,3 +172,15 @@ def generate_operation_id_for_path(*, name: str, path: str, method: str) -> str:
     operation_id = re.sub("[^0-9a-zA-Z_]", "_", operation_id)
     operation_id = operation_id + "_" + method.lower()
     return operation_id
+
+
+def deep_dict_update(main_dict: dict, update_dict: dict) -> None:
+    for key in update_dict:
+        if (
+            key in main_dict
+            and isinstance(main_dict[key], dict)
+            and isinstance(update_dict[key], dict)
+        ):
+            deep_dict_update(main_dict[key], update_dict[key])
+        else:
+            main_dict[key] = update_dict[key]
