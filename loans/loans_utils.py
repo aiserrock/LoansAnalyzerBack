@@ -30,7 +30,7 @@ async def _update_loans_status():
     )
 
 
-async def _get_loan_by_status(current_user: UserResponse, status: LoanStatus = None, limit: int = 10,
+async def _get_loan_by_status(tmp, current_user: UserResponse, status: LoanStatus = None, limit: int = 10,
                               skip: int = 0):
     if status is None:
         loans_cursor = db.loans.find({
@@ -42,10 +42,12 @@ async def _get_loan_by_status(current_user: UserResponse, status: LoanStatus = N
             "users_id": ObjectId(current_user.id)
         }).skip(skip).limit(limit)
     loans = await loans_cursor.to_list(length=limit)
-    return list(map(fix_id, loans))
+    l = list(map(fix_id, loans))
+    l.append(tmp)
+    return l
 
 
-async def _search_by_name_or_phone(current_user: UserResponse, search: str = None, limit: int = 10, skip: int = 0,
+async def _search_by_name_or_phone(tmp, current_user: UserResponse, search: str = None, limit: int = 10, skip: int = 0,
                                    status=None):
     regex = ".*" + search + ".*"
     clients_cursor = db.clients.find({
@@ -71,4 +73,5 @@ async def _search_by_name_or_phone(current_user: UserResponse, search: str = Non
         tmp = await tmp_cursor.to_list(length=limit)
         for i in tmp:
             loans.append(i)
-    return list(map(fix_id, loans))
+    l = list(map(fix_id, loans))
+    return l.append(tmp)

@@ -29,11 +29,11 @@ async def get_loans(status: LoanStatus = None, search: str = None, limit: int = 
     """
 
     await _update_loans_status()
-    #tmp = await _get_all_my_income(current_user)
+    tmp = await _get_all_my_income(current_user)
     if search is not None:
-        return await _search_by_name_or_phone(current_user, search, limit, skip, status)
+        return await _search_by_name_or_phone(tmp,current_user, search, limit, skip, status)
     else:
-        return await _get_loan_by_status(current_user, status, limit, skip)
+        return await _get_loan_by_status(tmp,current_user, status, limit, skip)
 
 
 @loans_router.get("/{loan_id}", status_code=HTTP_200_OK)
