@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c8a54991-6050-4b32-91eb-da2fc226a332" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/loans/loans_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/loans/loans_utils.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/loans/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/loans/routes.py" afterDir="false" />
     </list>
@@ -178,7 +177,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592826063518</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="fix report">
+      <created>1592826941569</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1592826941569</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -215,10 +221,10 @@
       <screen x="63" y="0" width="1303" height="768" />
     </state>
     <state x="444" y="130" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/63.0.1303.768@63.0.1303.768" timestamp="1591883856391" />
-    <state x="381" y="0" key="CommitChangelistDialog2" timestamp="1592826058856">
+    <state x="381" y="0" key="CommitChangelistDialog2" timestamp="1592826937950">
       <screen x="63" y="0" width="1303" height="768" />
     </state>
-    <state x="381" y="0" key="CommitChangelistDialog2/63.0.1303.768@63.0.1303.768" timestamp="1592826058856" />
+    <state x="381" y="0" key="CommitChangelistDialog2/63.0.1303.768@63.0.1303.768" timestamp="1592826937950" />
     <state x="252" y="283" key="FileChooserDialogImpl" timestamp="1591629099042">
       <screen x="63" y="0" width="1303" height="768" />
     </state>
@@ -227,10 +233,10 @@
       <screen x="63" y="0" width="1303" height="768" />
     </state>
     <state x="215" y="28" key="SettingsEditor/63.0.1303.768@63.0.1303.768" timestamp="1591629110817" />
-    <state x="306" y="119" key="Vcs.Push.Dialog.v2" timestamp="1592826104577">
+    <state x="306" y="119" key="Vcs.Push.Dialog.v2" timestamp="1592826950898">
       <screen x="63" y="0" width="1303" height="768" />
     </state>
-    <state x="306" y="119" key="Vcs.Push.Dialog.v2/63.0.1303.768@63.0.1303.768" timestamp="1592826104577" />
+    <state x="306" y="119" key="Vcs.Push.Dialog.v2/63.0.1303.768@63.0.1303.768" timestamp="1592826950898" />
     <state x="423" y="211" key="com.intellij.ide.util.TipDialog" timestamp="1591744511146">
       <screen x="63" y="0" width="1303" height="768" />
     </state>
