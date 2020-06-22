@@ -4,6 +4,7 @@ from starlette.status import HTTP_200_OK
 
 from clients.routes import _get_client
 from loans.loans_utils import _get_loan
+from loans.logic_calculate_money import _get_income_income_now_amount_of_dept
 from report_for_client.report_utils import _get_all_history_loans_by_loans_id
 from users.routes import _get_user
 
@@ -16,6 +17,7 @@ async def get_data_for_report(loan_id: str):
     client = await _get_client(loan["clients_id"])
     history_loan = await _get_all_history_loans_by_loans_id(loan_id)
     user = await _get_user(loan["users_id"])
+    income_income_now_amount_of_dept = await _get_income_income_now_amount_of_dept(loan)
     report = {
         "loan_id": loan["id"],
         "status": loan["status"],
@@ -26,6 +28,8 @@ async def get_data_for_report(loan_id: str):
         "increased_rate": loan["increased_rate"],
         "user_name": user["name"],
         "client_name": client["name"],
+        "income_income_now_amount_of_dept": income_income_now_amount_of_dept,
         "history_loan": history_loan
+
     }
     return report
