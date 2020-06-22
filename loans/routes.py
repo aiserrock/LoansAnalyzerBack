@@ -8,6 +8,7 @@ from auth.auth_utils import get_current_active_user
 from database.mongodb import db
 from database.mongodb_validators import fix_id, validate_object_id
 from loans.loans_utils import _update_loans_status, _search_by_name_or_phone, _get_loan_by_status, _get_loan
+from loans.logic_calculate_money import _get_income_income_now_amount_of_dept, _get_all_my_income
 from loans.model import LoansDB, LoanStatus, LoansCreate, LoansChange
 from users.model import UserResponse
 
@@ -28,17 +29,33 @@ async def get_loans(status: LoanStatus = None, search: str = None, limit: int = 
     """
 
     await _update_loans_status()
+    tmp = await _get_all_my_income(current_user)
     if search is not None:
-        return await _search_by_name_or_phone(current_user, search, limit, skip, status)
+        return await _search_by_name_or_phone(tmp,current_user, search, limit, skip, status)
     else:
-        return await _get_loan_by_status(current_user, status, limit, skip)
+        return await _get_loan_by_status(tmp,current_user, status, limit, skip)
 
 
 @loans_router.get("/{loan_id}", status_code=HTTP_200_OK)
 async def get_loan_by_id(loan_id: str, current_user: UserResponse = Depends(get_current_active_user)):
+
     loan = await _get_loan(loan_id)
+    income_income_now_amount_of_dept = await _get_income_income_now_amount_of_dept(loan)
     if loan and current_user.id == loan["users_id"]:
-        return loan
+        return {
+            "id": loan["id"],
+            "amount": loan["amount"],
+            "rate": loan["rate"],
+            "increased_rate": loan["increased_rate"],
+            "goal": loan["goal"],
+            "clients_id": loan["clients_id"],
+            "users_id": loan["users_id"],
+            "created_at": loan["created_at"],
+            "issued_at": loan["issued_at"],
+            "expiration_at": loan["expiration_at"],
+            "status": loan["status"],
+            "income_income_now_amount_of_dept": income_income_now_amount_of_dept
+        }
     else:
         raise HTTPException(status_code=401, detail="Access deny")
 

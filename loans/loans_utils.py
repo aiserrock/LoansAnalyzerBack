@@ -7,6 +7,7 @@ from fastapi import HTTPException
 
 from database.mongodb import db
 from database.mongodb_validators import validate_object_id, fix_id
+from loans.logic_calculate_money import _get_income_income_now_amount_of_dept
 from loans.model import LoanStatus
 from users.model import UserResponse
 
@@ -29,7 +30,8 @@ async def _update_loans_status():
     )
 
 
-async def _get_loan_by_status(current_user: UserResponse, status: LoanStatus = None, limit: int = 10, skip: int = 0):
+async def _get_loan_by_status(tmp, current_user: UserResponse, status: LoanStatus = None, limit: int = 10,
+                              skip: int = 0):
     if status is None:
         loans_cursor = db.loans.find({
             "users_id": ObjectId(current_user.id)
@@ -40,10 +42,13 @@ async def _get_loan_by_status(current_user: UserResponse, status: LoanStatus = N
             "users_id": ObjectId(current_user.id)
         }).skip(skip).limit(limit)
     loans = await loans_cursor.to_list(length=limit)
-    return list(map(fix_id, loans))
+    l = list(map(fix_id, loans))
+    l.append(tmp)
+    return l
 
 
-async def _search_by_name_or_phone(current_user: UserResponse, search: str = None, limit: int = 10, skip: int = 0, status = None):
+async def _search_by_name_or_phone(tmp, current_user: UserResponse, search: str = None, limit: int = 10, skip: int = 0,
+                                   status=None):
     regex = ".*" + search + ".*"
     clients_cursor = db.clients.find({
         "$or":
@@ -68,5 +73,5 @@ async def _search_by_name_or_phone(current_user: UserResponse, search: str = Non
         tmp = await tmp_cursor.to_list(length=limit)
         for i in tmp:
             loans.append(i)
-    return list(map(fix_id, loans))
-
+    l = list(map(fix_id, loans))
+    return l.append(tmp)
