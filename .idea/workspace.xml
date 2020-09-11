@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c8a54991-6050-4b32-91eb-da2fc226a332" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clients/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/clients/routes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/history_loans/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/history_loans/routes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loans/loans_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/loans/loans_utils.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/loans/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/loans/routes.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -245,7 +241,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599848804138</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="added validation in all moduls">
+      <created>1599858308393</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1599858308393</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -286,7 +289,8 @@
     <MESSAGE value="added report for client get" />
     <MESSAGE value="added b logic_calculate_money.py" />
     <MESSAGE value="fix report" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix report" />
+    <MESSAGE value="added validation in all moduls" />
+    <option name="LAST_COMMIT_MESSAGE" value="added validation in all moduls" />
   </component>
   <component name="WindowStateProjectService">
     <state x="444" y="130" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" />
