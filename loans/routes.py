@@ -27,7 +27,7 @@ async def get_loans(status: LoanStatus = None, search: str = None, statistics : 
              иначе вернет все займы пользователя
 
         statistics -  если этот параметр true, то метод get_loans возвращает статистику, а именно 3 параметра 1. all_my_income, 2. all_my_income_now 3. all_overdue_amount
-
+////
     """
 
     await _update_loans_status()
