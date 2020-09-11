@@ -6,7 +6,7 @@ from starlette.status import HTTP_200_OK, HTTP_201_CREATED
 
 from auth.auth_utils import get_current_active_user
 from database.mongodb import db
-from database.mongodb_validators import fix_id, validate_object_id
+from database.mongodb_validators import fix_id
 from loans.loans_utils import _update_loans_status, _search_by_name_or_phone, _get_loan_by_status, _get_loan
 from loans.logic_calculate_money import _get_income_income_now_amount_of_dept, _get_all_my_income
 from loans.model import LoansDB, LoanStatus, LoansCreate, LoansChange
