@@ -68,7 +68,7 @@ async def get_loan_by_id(loan_id: str, current_user: UserResponse = Depends(get_
 async def create_loan(loan: LoansCreate, current_user: UserResponse = Depends(get_current_active_user)):
     # validation
     #########
-    validating_for_loans(loan)
+    #validating_for_loans(loan)
     #############
     result = await db.loans.insert_one(
         {
@@ -97,7 +97,7 @@ async def update_loan_by_id(loan_id: str, loan: LoansChange,
                             current_user: UserResponse = Depends(get_current_active_user)):
     # validation
     #########
-    validating_for_loans(loan)
+    #validating_for_loans(loan)
     #############
     result = await db.loans.update_one({"$and": [{"_id": ObjectId(loan_id)}, {"users_id": ObjectId(current_user.id)}]},
                                        {"$set": {

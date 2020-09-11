@@ -69,7 +69,7 @@ async def update_client_by_id(client_id: str, client: ClientChange,
                               current_user: UserResponse = Depends(get_current_active_user)):
     # validation
     #########
-    validating_for_clients(client)
+    #validating_for_clients(client)
     #############
     result = await db.clients.update_one(
         {"$and": [{"_id": ObjectId(client_id)}, {"user_id": ObjectId(current_user.id)}]},
