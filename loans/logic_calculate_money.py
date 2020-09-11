@@ -2,12 +2,10 @@ import logging
 from datetime import datetime
 
 from fastapi import HTTPException
-from returns.result import Result,Success,Failure
 from bson import ObjectId
 
 from database.mongodb import db
 from database.mongodb_validators import fix_id
-from loans.model import LoansDB
 from users.model import UserResponse
 
 try:

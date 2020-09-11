@@ -108,11 +108,7 @@ async def update_loan_by_id(loan_id: str, loan: LoansChange,
             or loan.increased_rate < 0 \
             or loan.rate < 0:
         raise HTTPException(status_code=400, detail="amount or rate or increased_rate must be non-negative ")
-    ####!!!!!!!!!!!!!
-    if loan.issued_at > loan.expiration_at:
-        raise HTTPException(status_code=400, detail="")
 
-    ###
     result = await db.loans.update_one({"$and": [{"_id": ObjectId(loan_id)}, {"users_id": ObjectId(current_user.id)}]},
                                        {"$set": {
                                            "amount": loan.amount,
