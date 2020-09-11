@@ -2,9 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c8a54991-6050-4b32-91eb-da2fc226a332" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/loansAnalyzer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/loansAnalyzer.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loans/loans_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/loans/loans_utils.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/loans/logic_calculate_money.py" beforeDir="false" afterPath="$PROJECT_DIR$/loans/logic_calculate_money.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loans/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/loans/routes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,6 +27,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="MERGE" />
   </component>
+  <component name="JupyterTrust" id="3d267a75-e962-4a0e-b5a0-30172bb415dc" />
   <component name="ProjectId" id="1c90nOcCIaV8xOWgwqE9kGg1zeI" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -35,7 +42,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/AppData/Local/Programs/Python/Python38-32" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -48,6 +55,19 @@
       <recent name="C:\Users\ROOT\PycharmProjects\loansAnalyzer\users" />
     </key>
   </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SpellCheckerSettings" BundledDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -64,6 +84,9 @@
       <workItem from="1590364846729" duration="11679000" />
       <workItem from="1590453035294" duration="716000" />
       <workItem from="1590479032791" duration="22871000" />
+      <workItem from="1593546703210" duration="1366000" />
+      <workItem from="1599356534075" duration="18000" />
+      <workItem from="1599357770175" duration="23221000" />
     </task>
     <task id="LOCAL-00001" summary="added loans dir">
       <created>1590958516375</created>
@@ -202,12 +225,13 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
