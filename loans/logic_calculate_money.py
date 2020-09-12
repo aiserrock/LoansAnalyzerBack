@@ -110,7 +110,7 @@ try:
             rate = loan["rate"]
         else:
             rate = loan["increased_rate"]
-        delta = (datetime.now() - dept_and_procent_before_last_date["last_date"]).days
+        delta = abs((datetime.now() - dept_and_procent_before_last_date["last_date"]).days)
         my_income_between_last_day_and_now = find_procent(dept_and_procent_before_last_date["dept"], rate, delta)
         #logging.info(dept_and_procent_before_last_date)
         my_income_now = dept_and_procent_before_last_date["my_income"] - my_incomee + my_income_between_last_day_and_now

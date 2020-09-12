@@ -8,7 +8,6 @@ from auth.auth_utils import get_current_active_user
 from clients.model import ClientDB, ClientChange
 from database.mongodb import db
 from database.mongodb_validators import fix_id, validate_object_id
-from loans.loans_utils import validating_for_clients
 from users.model import UserResponse
 
 clients_router = APIRouter()
@@ -67,10 +66,6 @@ async def get_client_by_id(client_id: str, current_user: UserResponse = Depends(
 @clients_router.put("/{client_id}", response_model=ClientDB)
 async def update_client_by_id(client_id: str, client: ClientChange,
                               current_user: UserResponse = Depends(get_current_active_user)):
-    # validation
-    #########
-    #validating_for_clients(client)
-    #############
     result = await db.clients.update_one(
         {"$and": [{"_id": ObjectId(client_id)}, {"user_id": ObjectId(current_user.id)}]},
         {"$set": {

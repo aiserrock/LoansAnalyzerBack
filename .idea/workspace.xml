@@ -5,6 +5,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/clients/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/clients/routes.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/history_loans/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/history_loans/routes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loans/loans_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/loans/loans_utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loans/logic_calculate_money.py" beforeDir="false" afterPath="$PROJECT_DIR$/loans/logic_calculate_money.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/loans/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/loans/routes.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -258,7 +260,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599858349965</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="off valid">
+      <created>1599860145230</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1599860145230</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -300,7 +309,8 @@
     <MESSAGE value="fix report" />
     <MESSAGE value="added validation in all moduls" />
     <MESSAGE value="bag fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="bag fix" />
+    <MESSAGE value="off valid" />
+    <option name="LAST_COMMIT_MESSAGE" value="off valid" />
   </component>
   <component name="WindowStateProjectService">
     <state x="444" y="130" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" />
