@@ -11,7 +11,7 @@ docs: https://loans-analyzer.herokuapp.com/docs#/
                                                                         password: qwerty
                                                                         
  ***
- Для запуска на локалке:
+ Для запуска на локалке:  
       1. установить все зависимости из requirements.txt           
       2. `uvicorn main:app --reload`
 
