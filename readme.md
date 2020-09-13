@@ -8,7 +8,7 @@ docs: https://loans-analyzer.herokuapp.com/docs#/
 Само приложение https://loans-analyzer-front.herokuapp.com/
 
 Для доступа к функционалу необходимо авторизоваться (зеленый замок) где  
-login: `test` 
+login: `test`  
 password: `qwerty` 
                                                                         
  ***
