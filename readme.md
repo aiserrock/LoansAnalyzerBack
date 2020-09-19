@@ -22,14 +22,14 @@ tools of the program and make calculations using different formulas.
 
   The author set himself the task of developing a web application for working with
 loans, which:  
-1.determines overdue loans,  
-2.automatically calculates the income of the lender (from investments under  
+1. determines overdue loans,  
+2. automatically calculates the income of the lender (from investments under  
 percent) for all time, as well as in real time  
-3.Automatically calculates the lender's loss (from an investment under  
+3. Automatically calculates the lender's loss (from an investment under  
 interest), i.e. unreturned money  
-4.Gives the borrower access to a page with a detailed  
+4. Gives the borrower access to a page with a detailed  
 information on debt and payment history,  
-5.sends to the borrower a payment schedule - a table with detailed,  
+5. sends to the borrower a payment schedule - a table with detailed,  
 information in which month how much money to pay,  
 6. conducts analytics of the history of loans of a specific person with the aim of  
 approval / disapproval of a loan.  
@@ -38,10 +38,10 @@ approval / disapproval of a loan.
 ***
 The main idea of the application functioning:  
 There are 2 types of users:  
-  1.authorized user (keep track of issued loans and income from
+  1. authorized user (keep track of issued loans and income from
 them; has full access to the functionality of the application, independently
 enters into the system the amount repaid by the borrower)  
-  2.unauthorized user (the borrower who received
+  2. unauthorized user (the borrower who received
 loan and has access only to the balance tracking page
 debt, payment history and payment schedule)  
 </p>
