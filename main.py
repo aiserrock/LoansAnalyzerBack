@@ -18,7 +18,9 @@ from users.routes import users_router
 
 
 ##Added cors
-app = FastAPI(title="LoansAnalyzerAPI ", description="леха привет")
+app = FastAPI(title="LoansAnalyzerAPI ", description="To start using api authorize pls *********** "
+                                                     "login test ******** "
+                                                     " password qwerty")
 #CORS(app)
 
 app.add_event_handler("startup", connect_to_mongo)

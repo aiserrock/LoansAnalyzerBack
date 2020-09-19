@@ -29,7 +29,9 @@ async def get_data_for_report(loan_id: str):
         "goal": loan["goal"],
         "user_name": user["name"],
         "client_name": client["name"],
-        "income_income_now_amount_of_dept": income_income_now_amount_of_dept,
+        "my_income_now": income_income_now_amount_of_dept["my_income_now"],
+        "my_income": income_income_now_amount_of_dept["my_income"],
+        "amount_of_dept": income_income_now_amount_of_dept["amount_of_dept"],
         "history_loan": history_loan
 
     }

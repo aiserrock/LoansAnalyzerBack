@@ -28,3 +28,5 @@ class HistoryLoansCreate(BaseModel):
 class HistoryLoanType(str, Enum):
     PROCENT = "PROCENT"
     DEPT = "DEPT"
+    RETURN_PROCENT = "RETURN_PROCENT"
+    RETURN_DEPT = "RETURN_DEPT"

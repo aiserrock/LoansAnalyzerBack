@@ -1,4 +1,5 @@
 # Get loans Function.
+from datetime import datetime
 import datetime
 import logging
 
@@ -30,7 +31,7 @@ async def _update_loans_status():
     )
 
 
-async def _get_loan_by_status( current_user: UserResponse, status: LoanStatus = None, limit: int = 10,
+async def _get_loan_by_status(current_user: UserResponse, status: LoanStatus = None, limit: int = 10,
                               skip: int = 0):
     if status is None:
         loans_cursor = db.loans.find({
@@ -42,11 +43,21 @@ async def _get_loan_by_status( current_user: UserResponse, status: LoanStatus = 
             "users_id": ObjectId(current_user.id)
         }).skip(skip).limit(limit)
     loans = await loans_cursor.to_list(length=limit)
-    return list(map(fix_id, loans))
+    l = list(map(fix_id, loans))
+    for x in l:
+        x.update(await _get_income_income_now_amount_of_dept(x))
+    return l
+
+
+def hasDigit(search):
+    return any(char.isdigit() for char in search)
 
 
 async def _search_by_name_or_phone(current_user: UserResponse, search: str = None, limit: int = 10, skip: int = 0,
                                    status=None):
+    # ##work with phone number
+    if "+" in search or hasDigit(search):
+        search = search.strip().replace("+","").replace(" ","")
     regex = ".*" + search + ".*"
     clients_cursor = db.clients.find({
         "$or":
@@ -63,12 +74,21 @@ async def _search_by_name_or_phone(current_user: UserResponse, search: str = Non
     clients = await clients_cursor.to_list(length=limit)
     loans = []
     for client in clients:
-        tmp_cursor = db.loans.find({
-            "clients_id": ObjectId(client["_id"]),
-            "status": status.name,
-            "users_id": ObjectId(current_user.id)
-        }).skip(skip).limit(limit)
+        if status is not None:
+            tmp_cursor = db.loans.find({
+                "clients_id": ObjectId(client["_id"]),
+                "status": status.name,
+                "users_id": ObjectId(current_user.id)
+            }).skip(skip).limit(limit)
+        else:
+            tmp_cursor = db.loans.find({
+                "clients_id": ObjectId(client["_id"]),
+                "users_id": ObjectId(current_user.id)
+            }).skip(skip).limit(limit)
         tmp = await tmp_cursor.to_list(length=limit)
         for i in tmp:
             loans.append(i)
-    return list(map(fix_id, loans))
+    l = list(map(fix_id, loans))
+    for x in l:
+        x.update(await _get_income_income_now_amount_of_dept(x))
+    return l
