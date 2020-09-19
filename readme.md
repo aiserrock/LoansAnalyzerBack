@@ -8,7 +8,7 @@ source code for accounting, viewing, analysis, tracking loans with
 using any device that supports the browser.  
   
   
-***  
+  
 
 
   Loans Analyzer allows you to work with loans from anywhere in the world, where
@@ -53,10 +53,10 @@ debt, payment history and payment schedule)
   Loans Analyzer – это полностью бесплатный инструмент с открытым
 исходным кодом, для учета, просмотра, анализа, отслеживания займов с
 использованием любых устройств, которые поддерживают браузер.  
-***   
+    
 
 Loans Analyzer позволяет работать с займами из любой точки мира, где
-есть интернет. Приложение разработано (на данный момент только автором, но
+есть интернет. Приложение разработано (backend) (на данный момент только автором, но
 в дальнейшем энтузиастами) для обычных людей, которые готовы выдавать
 займы и не готовы тратить свое время на то чтобы долго разбираться в
 инструментах программы и производить расчеты по разным формулам.  
@@ -87,7 +87,7 @@ Loans Analyzer позволяет работать с займами из люб
 задолженности, истории выплат и графика платежей)
 </p>
 </details>   
-
+  
 - Use framework FastApi: https://fastapi.tiangolo.com/tutorial/first-steps/  
 - Docs: https://loans-analyzer.herokuapp.com/docs#/  
 - Deployed app: https://loans-analyzer-front.herokuapp.com/    
@@ -99,7 +99,7 @@ password: `qwerty`
 
                                                                         
  ***
- For start it on yoyr machine do this:  
+ For start it on yoyr machine do this:   
       1. install all dependencies from requirements.txt           
       2. in console write this: `uvicorn main:app --reload`
 
