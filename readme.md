@@ -1,5 +1,5 @@
 # LoansAnalyzerAPI by aiserrock
-## Open source progect for free use, more details here  
+## Open source progect for free use, more details here: 
 <details>
 <summary>Expand</summary>
 <p>  
@@ -35,11 +35,12 @@ Loans Analyzer позволяет работать с займами из люб
 займ и имеет доступ только к странице отслеживания остатка по
 задолженности, истории выплат и графика платежей)
 </p>
-</details>
+</details>  
+
 Use framework FastApi: https://fastapi.tiangolo.com/tutorial/first-steps/  
 Docs: https://loans-analyzer.herokuapp.com/docs#/  
-Deployed app: https://loans-analyzer-front.herokuapp.com/  
-Client-side source code: https://github.com/aiserrock/LoansAnalyzerFront  
+Deployed app: https://loans-analyzer-front.herokuapp.com/    
+Client-side source code: https://github.com/aiserrock/LoansAnalyzerFront    
 
 Для доступа к функционалу необходимо авторизоваться (зеленый замок) где  
 login: `test`  
