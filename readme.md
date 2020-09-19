@@ -5,14 +5,21 @@
 <p>  
   Loans Analyzer is a completely free open source tool
 source code for accounting, viewing, analysis, tracking loans with
-using any device that supports the browser.
-***
+using any device that supports the browser.  
+  
+  
+***  
+
+
   Loans Analyzer allows you to work with loans from anywhere in the world, where
 there is internet. The application(backend) is developed (at the moment only by the author, but
 further enthusiasts) for ordinary people who are ready to issue
 loans and are not ready to waste their time trying to understand
-tools of the program and make calculations using different formulas. 
-***
+tools of the program and make calculations using different formulas.   
+
+***  
+
+
   The author set himself the task of developing a web application for working with
 loans, which:  
 1.determines overdue loans,  
