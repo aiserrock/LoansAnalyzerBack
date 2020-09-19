@@ -99,7 +99,7 @@ password: `qwerty`
 
                                                                         
  ***
- For start it on yoyr machine do this:   
+ ## For start it on yoyr machine do this:   
       1. install all dependencies from requirements.txt           
       2. in console write this: `uvicorn main:app --reload`
 
