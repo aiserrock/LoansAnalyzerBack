@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c8a54991-6050-4b32-91eb-da2fc226a332" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/report_for_client/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/report_for_client/routes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/history_loans/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/history_loans/routes.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -87,6 +87,7 @@
       <workItem from="1593546703210" duration="1366000" />
       <workItem from="1599356534075" duration="18000" />
       <workItem from="1599357770175" duration="23221000" />
+      <workItem from="1600462848175" duration="2538000" />
     </task>
     <task id="LOCAL-00001" summary="added loans dir">
       <created>1590958516375</created>

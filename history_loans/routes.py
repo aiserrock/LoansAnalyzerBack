@@ -16,32 +16,41 @@ history_loans_router = APIRouter()
 
 
 # Get User Function.
-async def _get_history_loan_row_id(id: str):
+async def _get_history_loan_row_id(id: str, loans_id: str):
     _id = validate_object_id(id)
-    row = await db.history_loans.find_one({"_id": _id})
+    loans_id = validate_object_id(loans_id)
+    row = await db.history_loans.find_one({"_id": _id, "loans_id": loans_id})
     if row:
         return fix_id(row)
     else:
         raise HTTPException(status_code=404, detail="row not found")
 
 
-@history_loans_router.get("/{history_loan_row_id}", status_code=HTTP_200_OK)
-async def get_history_loan_row_by_id(history_loan_row_id: str,
-                                     current_user: UserResponse = Depends(get_current_active_user)):
-    row = await _get_history_loan_row_id(history_loan_row_id)
-    return row
+# @history_loans_router.get("/{history_loan_row_id}", status_code=HTTP_200_OK)
+# async def get_history_loan_row_by_id(history_loan_row_id: str,
+#                                      current_user: UserResponse = Depends(get_current_active_user)):
+#     row = await _get_history_loan_row_id(history_loan_row_id)
+#     return row
 
 
-@history_loans_router.get("/", status_code=HTTP_200_OK)
-async def get_all_history_loans_by_loans_id(loans_id: str, limit: int = 10, skip: int = 0,
+@history_loans_router.get("/{loan_id}", status_code=HTTP_200_OK)
+async def get_all_history_loans_by_loans_id(loan_id: str, row_id: str = "", limit: int = 10, skip: int = 0,
                                             current_user: UserResponse = Depends(get_current_active_user)):
-    history_loans_cursor = db.history_loans.find(
-        {
-            "loans_id": ObjectId(loans_id)
-        }
-    ).skip(skip).limit(limit)
-    history_loans = await history_loans_cursor.to_list(length=limit)
-    return list(map(fix_id, history_loans))
+    """
+    row_id по умолчанию None, если требуется извлеч всю историю выплат по займу,
+    иначе если row_id не пусто, то возращает конкретную запись из истории выплат по данному займу
+    """
+    if row_id != "":
+        row = await _get_history_loan_row_id(row_id,loan_id)
+        return row
+    else:
+        history_loans_cursor = db.history_loans.find(
+            {
+                "loans_id": ObjectId(loan_id)
+            }
+        ).skip(skip).limit(limit)
+        history_loans = await history_loans_cursor.to_list(length=limit)
+        return list(map(fix_id, history_loans))
 
 
 @history_loans_router.put("/{history_loan_row_id}", response_model=HistoryLoansDB)
