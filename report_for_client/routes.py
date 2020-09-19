@@ -26,6 +26,7 @@ async def get_data_for_report(loan_id: str):
         "issued_at": loan["issued_at"],
         "expiration_at": loan["expiration_at"],
         "increased_rate": loan["increased_rate"],
+        "goal": loan["goal"],
         "user_name": user["name"],
         "client_name": client["name"],
         "income_income_now_amount_of_dept": income_income_now_amount_of_dept,
