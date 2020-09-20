@@ -32,8 +32,12 @@ async def get_all_clients(current_user: UserResponse = Depends(get_current_activ
     горячую подгрузку из базы по имени клиента (этот функционал был введен,чтобы при создании займа
     легко находить клиента из базы), иначе ничего не передавай
     метод вернет всех клиентов авторизованного пользователя
-    """
 
+    pass the search string (returns everything that matches the entered string) to the search parameter if you want to use
+     hot loading from the database by the client's name (this functionality was introduced so that when creating a loan
+     easy to find a client from the database), otherwise don't transfer anything
+     the method will return all clients of the authorized user
+    """
 
     if search is not None:
         regex = ".*" + search + ".*"

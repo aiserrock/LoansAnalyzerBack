@@ -1,10 +1,8 @@
 from datetime import timedelta
-
 from fastapi import FastAPI, Depends, HTTPException
 from fastapi.security import OAuth2PasswordRequestForm
 from starlette import status
 from fastapi.middleware.cors import CORSMiddleware
-
 from auth.auth_utils import authenticate_user, ACCESS_TOKEN_EXPIRE_MINUTES, create_access_token, get_current_active_user
 from clients.routes import clients_router
 from database.mongodb_utilites import connect_to_mongo, disconnect_from_mongo
@@ -12,22 +10,16 @@ from auth.model import Token
 from history_loans.routes import history_loans_router
 from loans.routes import loans_router
 from report_for_client.routes import report_for_client_router
-from users.model import UserResponse
 from users.routes import users_router
-#from flask import Flask
 
 
 ##Added cors
 app = FastAPI(title="LoansAnalyzerAPI ", description="To start using api authorize pls *********** "
                                                      "login test ******** "
                                                      " password qwerty")
-#CORS(app)
 
 app.add_event_handler("startup", connect_to_mongo)
 app.add_event_handler("shutdown", disconnect_from_mongo)
-#app.router.redirect_slashes = False
-#Кажется, это redirect_slashesозначает «перенаправлять пути без косой черты в косую черту», ​​НЕ «перенаправлять косую черту без косой черты».
-
 
 origins = [
     "*"
@@ -90,6 +82,3 @@ async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(
         data={"sub": user.username}, expires_delta=access_token_expires
     )
     return {"access_token": access_token, "token_type": "bearer"}
-
-
-# current_user: UserResponse = Depends(get_current_active_user)

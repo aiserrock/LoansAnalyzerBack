@@ -2,8 +2,6 @@ from bson.objectid import ObjectId
 from fastapi import HTTPException
 import logging
 
-from users.model import UserDB
-
 
 def validate_object_id(id: str):
     try:

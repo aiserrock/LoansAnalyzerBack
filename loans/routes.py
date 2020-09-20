@@ -29,6 +29,15 @@ async def get_loans(status: LoanStatus = None, search: str = None, statistics: b
              иначе вернет все займы пользователя
 
         statistics -  если этот параметр true, то метод get_loans возвращает статистику, а именно 3 параметра 1. all_my_income, 2. all_my_income_now 3. all_overdue_amount
+
+        status - loan status (active, overdue, archived)
+         search - what we write in the find field (phone number or customer name)
+         in: status, search, limit, skip
+         out: if serach is not empty, it will return the selection by search
+              otherwise, if the status is not empty, it will return a selection by status
+              otherwise it will return all user loans
+
+         statistics - if this parameter is true, then the get_loans method returns statistics, namely 3 parameters 1. all_my_income, 2. all_my_income_now 3. all_overdue_amount
     """
 
     await _update_loans_status()

@@ -43,9 +43,3 @@ async def update_user_by_id(user: UserChange, current_user: UserResponse = Depen
         return fix_id(user)
     else:
         raise HTTPException(status_code=500, detail="User hasn't been changed")
-
-# @users_router.get("/", status_code=HTTP_200_OK)
-# async def get_all_users(limit: int = 10, skip: int = 0):
-#     users_cursor = db.users.find().skip(skip).limit(limit)
-#     users = await users_cursor.to_list(length=limit)
-#     return list(map(fix_id, users))

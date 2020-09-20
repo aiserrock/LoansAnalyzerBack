@@ -26,6 +26,7 @@ try:
             return (dept * procent_year * date_count) / (DAY_IN_YEAR * 100)
         else:
             # проценты в деньгах которые я ищу
+            # interest in the money I'm looking for
             procent_dept = 0
             while date_count - DAY_IN_YEAR > DAY_IN_YEAR:
                 date_count -= DAY_IN_YEAR
@@ -54,12 +55,13 @@ try:
         return list(map(fix_id, procent_history_loans))
 
 
-    ## функция находит остаток по долгу и процент за пользование деньгами
+    # функция находит остаток по долгу и процент за пользование деньгами
+    # the function finds the balance of the debt and the interest for the use of money
+
     def _get_dept_and_procent_include_last_date(loan, dept_obj):
-        # logging.info(dept_obj)
-        init_dept = loan["amount"]  # начальная сумма азйма
-        issued_at_date = loan["issued_at"]  # дата выдачи займа
-        expiration_at = loan["expiration_at"]  # срок выплаты займа по договору
+        init_dept = loan["amount"]  # начальная сумма займа; initial loan amount
+        issued_at_date = loan["issued_at"]  # дата выдачи займа; loan issue date
+        expiration_at = loan["expiration_at"]  # срок выплаты займа по договору; loan repayment term
         if len(dept_obj) == 0:
             return {
 
@@ -68,8 +70,9 @@ try:
                 "last_date": issued_at_date
             }
         last_date = dept_obj[0]["date"]
-        # деньги которые заплатит клиент за пользование моими деньгами
-        my_income = 0  ## это процент за пользование деньгами, применяется в функции пониже для расчета задолженности на сегодня
+        # деньги которые заплатит клиент за пользование моими деньгами; money that the client will pay for using my money
+        my_income = 0  # это процент за пользование деньгами, применяется в функции пониже для расчета задолженности на сегодня
+        # this is the percentage for using money, it is used in the lower function to calculate the debt for today
         if expiration_at >= dept_obj[0]["date"]:
             rate = loan["rate"]
         else:
@@ -77,9 +80,10 @@ try:
         # init step
         delta = (dept_obj[0]["date"] - issued_at_date).days
         # проценты за пользование деньгами, фунция возвращает уже проценты перещитанные в деньги
+        # interest for using money, the function returns the interest already calculated in money
         find_procent_for_gap = find_procent(init_dept, rate, delta)
-        my_income += find_procent_for_gap  ## смущает название mi_income вместо my_income_now
-        # сумма к возврату
+        my_income += find_procent_for_gap
+        # сумма к возврату; refundable amount
         dept = init_dept - dept_obj[0]["amount"]
         if len(dept_obj) > 1:
             for x in range(1, len(dept_obj)):
@@ -101,7 +105,8 @@ try:
         }
 
 
-    ## функцичя суммирует все выплаты процентов клиентом,это уже считается доходом my_income
+    # функцичя суммирует все выплаты процентов клиентом,это уже считается доходом my_income
+    # functionally sums up all interest payments by the client, this is already considered income my_income
     def _get_my_incom(procent_obj):
         my_income = 0
         for x in range(0, len(procent_obj)):
@@ -109,7 +114,9 @@ try:
         return my_income
 
 
-    ## функция высчитывает задолженность на сегодня (суммируется задолженности из истории выплаты и задолженностьь от последней даты выплаты до настоящего момента)
+    # функция высчитывает задолженность на сегодня (суммируется задолженности из истории выплаты и задолженностьь от последней даты выплаты до настоящего момента)
+    # the function calculates the debt for today (sums up the debt from the payment history and the debt from the last payment date to the present moment)
+
     def _get_my_income_now(dept_and_procent_before_last_date, loan, my_incomee):
         if loan["expiration_at"] >= datetime.now():
             rate = loan["rate"]
@@ -117,12 +124,12 @@ try:
             rate = loan["increased_rate"]
         delta = abs((datetime.now() - dept_and_procent_before_last_date["last_date"]).days)
         my_income_between_last_day_and_now = find_procent(dept_and_procent_before_last_date["dept"], rate, delta)
-        # logging.info(dept_and_procent_before_last_date)
         my_income_now = dept_and_procent_before_last_date["my_income"] - my_incomee + my_income_between_last_day_and_now
         return my_income_now
 
 
-    ## функция возвращает сумму оставшейся задолженности, сумма задолженности за пользование деньгами на ссегодня и, мой доход(уже выплаченные деньги за пользование моими деньгами)
+    # функция возвращает сумму оставшейся задолженности, сумма задолженности за пользование деньгами на ссегодня и, мой доход(уже выплаченные деньги за пользование моими деньгами)
+    # the function returns the amount of the remaining debt, the amount of debt for using the money for today and, my income (money already paid for using my money)
     async def _get_income_income_now_amount_of_dept(loan):
         loan = loan
         dept_obj = await _get_dept_obj(loan["id"])
@@ -130,8 +137,9 @@ try:
 
         # получаю обьект в котором содержится задолженность по долгу и долг который должен отдать клиент
         # за пользование деньгами
+        # I receive an object that contains a debt on a debt and a debt that the client must pay for using the money
+
         dept_and_procent_before_last_date = _get_dept_and_procent_include_last_date(loan, dept_obj)
-        # logging.info(dept_and_procent_before_last_date)
         my_incomee = _get_my_incom(procent_obj)
         my_incom_now = _get_my_income_now(dept_and_procent_before_last_date, loan, my_incomee)
         if dept_and_procent_before_last_date["dept"] <= 0 and my_incom_now <= 0:
@@ -155,7 +163,6 @@ try:
         all_my_income = 0
         all_my_income_now = 0
         for loan in l:
-            # logging.info(loan)
             tmp = await _get_income_income_now_amount_of_dept(loan)
             logging.info(tmp)
             if tmp["my_income"] > 0:

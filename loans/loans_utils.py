@@ -1,4 +1,3 @@
-# Get loans Function.
 from datetime import datetime
 import datetime
 import logging
@@ -55,9 +54,9 @@ def hasDigit(search):
 
 async def _search_by_name_or_phone(current_user: UserResponse, search: str = None, limit: int = 10, skip: int = 0,
                                    status=None):
-    # ##work with phone number
+    # work with phone number
     if "+" in search or hasDigit(search):
-        search = search.strip().replace("+","").replace(" ","")
+        search = search.strip().replace("+", "").replace(" ", "")
     regex = ".*" + search + ".*"
     clients_cursor = db.clients.find({
         "$or":

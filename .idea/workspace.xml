@@ -3,8 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="c8a54991-6050-4b32-91eb-da2fc226a332" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth/auth_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/auth/auth_utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clients/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/clients/routes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/mongodb_validators.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/mongodb_validators.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/history_loans/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/history_loans/routes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loans/loans_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/loans/loans_utils.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/loans/logic_calculate_money.py" beforeDir="false" afterPath="$PROJECT_DIR$/loans/logic_calculate_money.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/report_for_client/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/report_for_client/routes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loans/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/loans/routes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/routes.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +74,7 @@
       <workItem from="1590364846729" duration="11679000" />
       <workItem from="1590453035294" duration="716000" />
       <workItem from="1590479032791" duration="22871000" />
-      <workItem from="1600590717049" duration="3557000" />
+      <workItem from="1600590717049" duration="5582000" />
     </task>
     <task id="LOCAL-00001" summary="added loans dir">
       <created>1590958516375</created>
@@ -195,7 +202,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592827171145</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="change logic_calculate_money">
+      <created>1600597981219</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1600597981219</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -226,13 +240,14 @@
     <MESSAGE value="added b logic_calculate_money.py" />
     <MESSAGE value="fix report" />
     <MESSAGE value="added goals on report page" />
-    <option name="LAST_COMMIT_MESSAGE" value="added goals on report page" />
+    <MESSAGE value="change logic_calculate_money" />
+    <option name="LAST_COMMIT_MESSAGE" value="change logic_calculate_money" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="672" y="0" key="CommitChangelistDialog2" timestamp="1600539471492">
+    <state x="672" y="0" key="CommitChangelistDialog2" timestamp="1600597980486">
       <screen x="62" y="0" width="2498" height="1080" />
     </state>
-    <state x="672" y="0" key="CommitChangelistDialog2/62.0.2498.1080@62.0.2498.1080" timestamp="1600539471492" />
+    <state x="672" y="0" key="CommitChangelistDialog2/62.0.2498.1080@62.0.2498.1080" timestamp="1600597980486" />
     <state x="381" y="0" key="CommitChangelistDialog2/63.0.1303.768@63.0.1303.768" timestamp="1592827169877" />
     <state x="304" y="90" key="MergeDialog" timestamp="1600539505149">
       <screen x="62" y="0" width="2498" height="1080" />
@@ -242,14 +257,28 @@
       <screen x="62" y="0" width="2498" height="1080" />
     </state>
     <state x="949" y="301" key="MultipleFileMergeDialog/62.0.2498.1080@62.0.2498.1080" timestamp="1600539505157" />
-    <state x="528" y="167" key="Vcs.Push.Dialog.v2" timestamp="1600539725668">
+    <state x="528" y="167" key="Vcs.Push.Dialog.v2" timestamp="1600597982828">
       <screen x="62" y="0" width="2498" height="1080" />
     </state>
-    <state x="528" y="167" key="Vcs.Push.Dialog.v2/62.0.2498.1080@62.0.2498.1080" timestamp="1600539725668" />
+    <state x="528" y="167" key="Vcs.Push.Dialog.v2/62.0.2498.1080@62.0.2498.1080" timestamp="1600597982828" />
     <state x="306" y="119" key="Vcs.Push.Dialog.v2/63.0.1303.768@63.0.1303.768" timestamp="1592827184110" />
     <state x="525" y="302" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1592469661800">
       <screen x="63" y="0" width="1303" height="768" />
     </state>
     <state x="525" y="302" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/63.0.1303.768@63.0.1303.768" timestamp="1592469661800" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/loans/model.py</url>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/loans/routes.py</url>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

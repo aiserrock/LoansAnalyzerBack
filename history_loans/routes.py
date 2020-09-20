@@ -35,19 +35,15 @@ async def _get_history_loan_row_with_loans_id(row_id: str):
         raise HTTPException(status_code=404, detail="row not found")
 
 
-# @history_loans_router.get("/{history_loan_row_id}", status_code=HTTP_200_OK)
-# async def get_history_loan_row_by_id(history_loan_row_id: str,
-#                                      current_user: UserResponse = Depends(get_current_active_user)):
-#     row = await _get_history_loan_row_id(history_loan_row_id)
-#     return row
-
-
 @history_loans_router.get("/{loan_id}", status_code=HTTP_200_OK)
 async def get_all_history_loans_by_loans_id(loan_id: str, row_id: str = "", limit: int = 10, skip: int = 0,
                                             current_user: UserResponse = Depends(get_current_active_user)):
     """
     row_id по умолчанию None, если требуется извлеч всю историю выплат по займу,
     иначе если row_id не пусто, то возращает конкретную запись из истории выплат по данному займу
+
+    row_id by default None, if you want to retrieve the entire history of loan payments,
+     otherwise, if row_id is not empty, then it returns a specific record from the history of payments for this loan
     """
     if row_id != "":
         row = await _get_history_loan_row_id(row_id, loan_id)
