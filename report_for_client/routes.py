@@ -9,7 +9,7 @@ from report_for_client.report_utils import _get_all_history_loans_by_loans_id
 from users.routes import _get_user
 
 report_for_client_router = APIRouter()
-
+###
 
 @report_for_client_router.get("/{loan_id}", status_code=HTTP_200_OK)
 async def get_data_for_report(loan_id: str):
